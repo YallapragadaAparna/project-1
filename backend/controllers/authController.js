@@ -39,7 +39,7 @@ const db = require('../db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-exports.register = async (req, res) => {
+/*exports.register = async (req, res) => {
   const { username, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -49,6 +49,33 @@ exports.register = async (req, res) => {
     if (err) return res.status(500).json({ error: err.message });
     res.status(201).json({ message: 'User registered successfully!' });
   });
+};*/
+exports.register = async (req, res) => {
+  const { username, email, password } = req.body;
+
+  // ✅ Basic validation
+  if (!username || !email || !password) {
+    return res.status(400).json({ error: 'Username, email, and password are required' });
+  }
+
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const sql = `INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'customer')`;
+
+    db.query(sql, [username, email, hashedPassword], (err, result) => {
+      if (err) {
+        console.error('❌ Registration error:', err);
+        return res.status(500).json({ error: 'Registration failed. Possibly duplicate email or username.' });
+      }
+
+      res.status(201).json({ message: '✅ User registered successfully!' });
+    });
+
+  } catch (err) {
+    console.error('❌ Server error during registration:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 };
 
 exports.login = (req, res) => {

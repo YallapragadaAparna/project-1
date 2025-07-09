@@ -242,7 +242,9 @@ const FlightSearchPage = () => {
           {flights.map((flight, index) => (
             <div
               key={index}
-              onClick={() => navigate('/book', { state: { FlightCode: flight.FlightCode } })}
+              //onClick={() => navigate('/book', { state: { FlightCode: flight.FlightCode } })}
+              onClick={() => navigate('/book', { state: { flight } })}
+
                     style={{
                 border: '1px solid #ccc',
                 padding: '12px',

@@ -1,20 +1,37 @@
 // utils/email.js
-
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER, // your Gmail address
-    pass: process.env.EMAIL_PASS  // your App Password (NOT your Gmail password)
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 
-exports.sendConfirmationEmail = (toEmail, bookingId, passengers = []) => {
-  const passengerList = passengers.map((p, index) => {
-    return `<li>${index + 1}. ${p.name} (${p.age}, ${p.gender})${p.relation ? ` - ${p.relation}` : ''}</li>`;
-  }).join('');
+// 📧 General Email Sender
+const sendEmail = async (to, subject, body) => {
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to,
+    subject,
+    text: body
+  };
+
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log('✅ Email sent:', info.response);
+  } catch (error) {
+    console.error('❌ Email error:', error);
+  }
+};
+
+// 📧 Booking Confirmation
+const sendConfirmationEmail = (toEmail, bookingId, passengers = []) => {
+  const passengerList = passengers.map((p, i) => (
+    `<li>${i + 1}. ${p.name} (${p.age}, ${p.gender})${p.relation ? ` - ${p.relation}` : ''}</li>`
+  )).join('');
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
@@ -23,19 +40,18 @@ exports.sendConfirmationEmail = (toEmail, bookingId, passengers = []) => {
     html: `
       <h2>Thank you for booking with us!</h2>
       <p>Your booking (ID: <strong>${bookingId}</strong>) was successful.</p>
-      <p><strong>Passenger(s):</strong></p>
       <ul>${passengerList}</ul>
-      <p>You will receive further updates as your travel date approaches.</p>
-      <br/>
       <p>Safe travels! ✈️</p>
     `
   };
 
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
-      console.error('❌ Error sending email:', err);
+      console.error('❌ Booking email failed:', err);
     } else {
-      console.log('✅ Email sent:', info.response);
+      console.log('✅ Booking email sent:', info.response);
     }
   });
 };
+
+module.exports = { sendEmail, sendConfirmationEmail };

@@ -116,4 +116,9 @@ body {
     font-size: 16px;
   }
 }
-
+/* Heading in App.js */
+.App h1 {
+  text-align: center;
+  margin-top: 50px; /* adjust as needed */
+  margin-bottom: 30px; /* optional spacing below heading */
+}

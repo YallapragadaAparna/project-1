@@ -4,12 +4,24 @@ CREATE DATABASE IF NOT EXISTS travel_booking;
 -- Use the database
 USE travel_booking;
 
-CREATE TABLE IF NOT EXISTS users (
+/*CREATE TABLE IF NOT EXISTS users (
   username VARCHAR(100) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
+ email VARCHAR(255) NOT NULL UNIQUE,
+  role ENUM('admin', 'customer') DEFAULT 'customer',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);*/
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL UNIQUE,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  reset_token VARCHAR(255),
+  reset_token_expiry BIGINT,
   role ENUM('admin', 'customer') DEFAULT 'customer',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
 CREATE TABLE IF NOT EXISTS flights (
   FlightName VARCHAR(100) NOT NULL,
@@ -68,3 +80,15 @@ CREATE TABLE IF NOT EXISTS admin_logs (
   password VARCHAR(255) NOT NULL,
   login_time DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE forgot_password_users (
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  reset_token VARCHAR(255),
+  reset_token_expiry BIGINT
+);
+
+ALTER TABLE users
+ADD COLUMN email VARCHAR(255) NOT NULL UNIQUE,
+ADD COLUMN reset_token VARCHAR(255),
+ADD COLUMN reset_token_expiry BIGINT;

@@ -113,13 +113,14 @@ import AdminLoginPage from './pages/AdminLoginPage';
 import AddFlightPage from './pages/AddFlightPage';
 import FlightSearchPage from './pages/FlightSearchPage';
 import BookingComponent from './pages/BookingComponent';
+import LandingPage from './pages/LandingPage';
 function App() {
    const token = localStorage.getItem('token');
   return (
     <div className="App">
       <h1 style={{ textAlign: 'center' }}>✈️ Travel Booking System</h1>
       <Routes>
-        <Route path="/" element={<h2>Welcome to the Travel Booking System</h2>} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<UserRegisterPage />} />
          <Route path="/login" element={<UserLoginPage />} /> 
          <Route path="/admin/register" element={<AdminRegisterPage />} />

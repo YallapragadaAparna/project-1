@@ -1,0 +1,34 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 33060,
+            "driver": "MySQL",
+            "name": "local",
+            "database": "project",
+            "username": "root",
+            "password": "My@Sql@2",
+            "connectionTimeout": 100
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 33060,
+            "driver": "MySQL",
+            "name": "Travel Booking",
+            "database": "travel_booking",
+            "username": "root",
+            "password": "My@Sql@2",
+            "connectionTimeout": 100
+        }
+    ]
+}

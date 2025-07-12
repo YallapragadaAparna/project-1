@@ -73,6 +73,7 @@ import './UserRegisterPage.css';
 const RegisterComponent = () => {
   const [form, setForm] = useState({
     username: '',
+    email: '',
     password: '',
     role: 'customer',
   });
@@ -81,7 +82,7 @@ const RegisterComponent = () => {
 
   const handleRegister = async () => {
     try {
-      const res = await registerUser(form);
+      const res = await registerUser(form);  
       const data = await res.json();
       if (res.ok) {
         alert(data.message || 'Registered successfully');

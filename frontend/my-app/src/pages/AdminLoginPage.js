@@ -109,7 +109,7 @@ const AdminLoginPage = () => {
               Register
             </a>
           </span>
-          <a href="/admin/forgot-password" style={{ color: '#007bff' }}>
+          <a href="/forgot-password" style={{ color: '#007bff' }}>
             Forgot Password?
           </a>
         </div>

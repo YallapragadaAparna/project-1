@@ -69,3 +69,27 @@ export const makePayment = (paymentData) => fetch(`${API_BASE}/payment/pay`, {
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(paymentData)
 });
+export const sendForgotPasswordEmail = (body) => {
+  return fetch(`${API_BASE}/auth/forgot-password`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+};
+
+export const resetPassword = (token, body) => {
+  return fetch(`${API_BASE}/auth/reset-password/${token}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+};
+export const payNow = async (paymentData) => {
+  return fetch('/api/payment/pay', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(paymentData)
+  });
+};

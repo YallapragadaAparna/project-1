@@ -1,0 +1,79 @@
+.landingWrapper {
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* background: linear-gradient(to right, #e0f7fa, #e1bee7); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.landingContainer {
+  text-align: center;
+  padding: 0px;
+}
+
+@keyframes blinkAnimation {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.blinkingHeading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2e3c7e;
+  animation: blinkAnimation 1s infinite;
+  margin-bottom: 30px;
+}
+.categoryTitle {
+  color: #1e1e2f;
+  margin-bottom: 20px;
+}
+
+.cardContainer {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 25px;
+  width: 250px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  text-align: center;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.adminCard {
+  border-top: 6px solid #3f51b5;
+}
+
+.userCard {
+  border-top: 6px solid #8e24aa;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}

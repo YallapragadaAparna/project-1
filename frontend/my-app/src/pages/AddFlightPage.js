@@ -44,9 +44,9 @@ const AddFlightPage = ({ token }) => {
   };
 
   return (
-    <div className="page-box">
-      <h2>🛫 Add New Flight</h2>
-      <div className="component-box">
+   <div className="page-box">
+  <div className="component-box">
+    <h2 className="form-title">🛫 Add New Flight</h2>
         {Object.entries(flight).map(([key, value]) => (
           <input
             key={key}

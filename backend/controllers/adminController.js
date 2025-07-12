@@ -41,12 +41,3 @@ exports.loginAdmin = (req, res) => {
     });
   });
 };
-
-exports.getAdminProfile = (req, res) => {
-  const adminId = req.admin.id;
-
-  db.query('SELECT id, admin_name, email, airport_code, airport_name, city, country FROM admins WHERE id = ?', [adminId], (err, results) => {
-    if (err) return res.status(500).json({ message: 'Error retrieving admin profile' });
-    res.json(results[0]);
-  });
-};

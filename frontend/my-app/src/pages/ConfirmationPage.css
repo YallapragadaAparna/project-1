@@ -1,0 +1,43 @@
+.confirmation-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #f0f8ff;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.confirmation-container h2 {
+  color: #2e7d32;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.confirmation-details {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  background: rgb(196, 231, 250);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #acd1e2;
+}
+
+.confirmation-container p {
+  margin: 10px 0;
+}
+
+.success-icon {
+  font-size: 48px;
+  color: #43a047;
+  margin-bottom: 10px;
+}
+
+.thank-you {
+  font-weight: bold;
+  color:  #0056b3;
+  font-size: 18px;
+}

@@ -1,1 +1,30 @@
-# project-1
+#### ✈️ Travel Booking Website
+This is a full-stack Travel Booking Application built with the MERN stack (MongoDB/MySQL, Express, React, Node.js), designed to provide users with a seamless flight search and booking experience. The application supports one-way and round-trip bookings, role-based access control, and is deployed with high availability on AWS using EC2, RDS, S3, CloudFront, and other DevOps tools.
+
+# 🚀 Features
+👤 For Customers:
+User Registration and Login
+
+Search Flights by Departing & Arriving Cities and Dates
+
+View Flight Details
+
+Auto-filled Booking Form on Flight Selection
+
+Enter Passenger Details (Single or Multiple)
+
+One-way or Round-trip Booking
+
+Proceed to Payment (dummy flow)
+
+View Booking Confirmation
+
+# 👨‍✈️ For Admin:
+Admin Login and Registration
+
+Add New Flights
+
+Manage Flight Details
+
+Admin Profile Management
+

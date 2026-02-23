@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS users (
   username VARCHAR(100) NOT NULL UNIQUE,
   email VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
-  reset_token VARCHAR(255),
-  reset_token_expiry BIGINT,
+  reset_token VARCHAR(255) NULL,
+  reset_token_expiry BIGINT NULL,
   role ENUM('admin', 'customer') DEFAULT 'customer',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

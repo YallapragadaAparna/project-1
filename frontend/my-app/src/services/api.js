@@ -86,7 +86,7 @@ export const resetPassword = (token, body) => {
   });
 };
 export const payNow = async (paymentData) => {
-  return fetch('${API_BASE}/api/payment/pay', {
+  return fetch('${API_BASE}/payment/pay', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

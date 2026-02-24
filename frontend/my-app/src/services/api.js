@@ -1,7 +1,7 @@
 // src/services/api.js
 
-//const API_BASE = 'http://localhost:5000/api';
-const API_BASE = 'https://travelbooking-backend-xcge.onrender.com/api';
+const API_BASE = 'http://localhost:5000/api';
+//const API_BASE = 'https://travelbooking-backend-xcge.onrender.com/api';
 
 // 🔑 User Auth
 export const loginUser = (data) => fetch(`${API_BASE}/auth/login`, {

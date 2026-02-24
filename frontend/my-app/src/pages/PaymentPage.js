@@ -10,7 +10,7 @@ const PaymentPage = () => {
   const [form, setForm] = useState({
     card_number: '4111111111111111',
     card_holder: 'John Doe',
-    expiry_date: '2025-12',
+    expiry_date: '2030-12',
     cvv: '123'
   });
 
